@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+  </head>
+  <body>
+    <!--
+  This example requires Tailwind CSS v2.0+
+
+  This example requires some changes to your config:
+
+  ```
+  // tailwind.config.js
+  const colors = require('tailwindcss/colors')
+
+  module.exports = {
+    // ...
+    theme: {
+      extend: {
+        colors: {
+          teal: colors.teal,
+          cyan: colors.cyan,
+        },
+      },
+    },
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+      require('@tailwindcss/aspect-ratio'),
+    ],
+  }
+  ```
+-->
+    <div class="bg-white">
+      <div class="relative overflow-hidden">
+        <header class="relative">
+          <div class="bg-cyan-800 shadow-2xl pt-6 pb-6">
+            <nav
+              class="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
+              aria-label="Global"
+            >
+              <div class="flex items-center flex-1">
+                <div class="flex items-center justify-between w-full md:w-auto">
+                  <a href="#">
+                    <img
+                      class="h-8 w-auto sm:h-10"
+                      src="assets/images/Logo-blanc.png"
+                      alt=""
+                    />
+                  </a>
+                  <div class="-mr-2 flex items-center md:hidden">
+                    <button
+                      type="button"
+                      class="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
+                      aria-expanded="false"
+                    >
+                      <span class="sr-only">Open main menu</span>
+                      <!-- Heroicon name: outline/menu -->
+                      <svg
+                        class="h-6 w-6"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M4 6h16M4 12h16M4 18h16"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div class="hidden space-x-8 md:flex md:ml-10">
+                  <a
+                    href="#"
+                    class="text-base font-medium text-white hover:text-gray-300"
+                    >Tarif</a
+                  >
+
+                  <a
+                    href="#"
+                    class="text-base font-medium text-white hover:text-gray-300"
+                    >Blog</a
+                  >
+
+                  <a
+                    href="#"
+                    class="text-base font-medium text-white hover:text-gray-300"
+                    >Fonctionnalités</a
+                  >
+
+                  <a
+                    href="#"
+                    class="text-base font-medium text-white hover:text-gray-300"
+                    >Pourquoi ?</a
+                  >
+                </div>
+              </div>
+              <div class="hidden md:flex md:items-center md:space-x-6">
+                <a
+                  href="#"
+                  class="text-base font-medium text-white hover:text-gray-300"
+                >
+                  Se connecter
+                </a>
+                <a
+                  href="#"
+                  class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
+                >
+                  Créer mon compte
+                </a>
+              </div>
+            </nav>
+          </div>
+
+          <!--
+          Mobile menu, show/hide based on menu open state.
+
+          Entering: "duration-150 ease-out"
+            From: "opacity-0 scale-95"
+            To: "opacity-100 scale-100"
+          Leaving: "duration-100 ease-in"
+            From: "opacity-100 scale-100"
+            To: "opacity-0 scale-95"
+        -->
+          <div
+            class="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden"
+          >
+            <div
+              class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden"
+            >
+              <div class="px-5 pt-4 flex items-center justify-between">
+                <div>
+                  <img
+                    class="h-8 w-auto"
+                    src="assets/images/Logo-bleu.png"
+                    alt=""
+                  />
+                </div>
+                <div class="-mr-2">
+                  <button
+                    type="button"
+                    class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600"
+                  >
+                    <span class="sr-only">Close menu</span>
+                    <!-- Heroicon name: outline/x -->
+                    <svg
+                      class="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="pt-5 pb-6">
+                <div class="px-2 space-y-1">
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                    >Tarifs</a
+                  >
+
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                    >Blog</a
+                  >
+
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                    >Fonctionnalités</a
+                  >
+
+                  <a
+                    href="#"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                    >Pourquoi ?</a
+                  >
+                </div>
+                <div class="mt-6 px-5">
+                  <a
+                    href="#"
+                    class="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700"
+                    >Créer mon compte</a
+                  >
+                </div>
+                <div class="mt-6 px-5">
+                  <p class="text-center text-base font-medium text-gray-500">
+                    <a href="#" class="text-gray-900 hover:underline"
+                      >Se connecter</a
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main>
+          <div
+            class="pt-10 bg-cyan-800 rounded-b-3xl sm:pt-16 lg:pt-8 pb-14 lg:overflow-hidden"
+          >
+            <div class="  mx-auto max-w-7xl lg:px-8">
+                <div
+                  class="text-center mx-auto max-w-md px-4 items-center sm:max-w-2xl sm:px-6  lg:px-0 lg:flex "
+                >
+                  <div class="lg:py-24">
+                    <h1
+                      class="mt-4 text-4xl tracking-tight font-bold text-white sm:mt-5 sm:text-6xl sm:tracking-tight lg:mt-6 xl:text-6xl xl:tracking-tight"
+                    >
+                      <span class="block">Performez la gestion</span>
+                      <span
+                        class="pb-3 block bg-clip-text text-transparent bg-gradient-to-r from-teal-200 to-cyan-400 sm:pb-5"
+                        >de votre SCI</span
+                      >
+                    </h1>
+                    <p
+                      class="text-base text-gray-300 sm:text-xl lg:text-lg xl:text-xl"
+                    >
+                      N'attendez plus la dernière minute et gagnez du temps dans
+                      la gestion de votre Société Civile Immobilière.
+                    </p>
+                    <div class="mt-10 sm:mt-12">
+                      <form action="#" class="sm:max-w-xl sm:mx-auto lg:mx-0">
+                        <div class="flex justify-center">
+                          <div class="min-w-0 flex-1">
+                            <label for="email" class="sr-only"
+                              >Adresse mail</label
+                            >
+                            <input
+                              id="email"
+                              type="email"
+                              placeholder="Adresse mail"
+                              class="block w-full px-4 py-3 rounded-md border-0 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
+                            />
+                          </div>
+                          <div class="mt-3 sm:mt-0 sm:ml-3">
+                            <button
+                              type="submit"
+                              class="block w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 focus:ring-offset-gray-900"
+                            >
+                              Créer un compte
+                            </button>
+                          </div>
+                        </div>
+                        <p class="mt-3 text-sm text-gray-300 sm:mt-4">
+                          &check; Souscription rapide &check; Simple
+                        </p>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+          <!-- Feature section with screenshot -->
+          <div class="relative lg:-mt-32">
+            <div
+              class="mx-auto max-w-md  text-center sm:max-w-3xl lg:max-w-7xl"
+            >
+              <div class="">
+                <img
+                  class=""
+                  src="assets/images/screenshot_index.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature section with grid -->
+          <div class="relative bg-white py-16 mb-32 sm:py-24 lg:py-32">
+            <div
+              class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl"
+            >
+              <h2 class="text-lg font-semibold text-cyan-600">
+                Votre SCI, votre gestion,
+              </h2>
+              <p
+                class="mt-2 text-3xl font-bold text-gray-900 tracking-tight sm:text-4xl sm:tracking-tight"
+              >
+                vos résultats... mais pas que !
+              </p>
+
+              <div class="mt-12">
+                <div
+                  class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+                >
+                  <div class="pt-6">
+                    <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+                      <div class="-mt-6">
+                        <div>
+                          <span
+                            class="inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg"
+                          >
+                            <!-- Heroicon name: outline/cloud-upload -->
+                            <svg
+                              class="h-6 w-6 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <h3
+                          class="mt-8 text-lg font-medium text-gray-900 tracking-tight"
+                        >
+                          Pilotez
+                        </h3>
+                        <p class="mt-5 text-base text-gray-500">
+                          votre SCI avec vos relevés bancaires.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-6">
+                    <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+                      <div class="-mt-6">
+                        <div>
+                          <span
+                            class="inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg"
+                          >
+                            <!-- Heroicon name: outline/lock-closed -->
+                            <svg
+                              class="h-6 w-6 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <h3
+                          class="mt-8 text-lg font-medium text-gray-900 tracking-tight"
+                        >
+                          Agissez
+                        </h3>
+                        <p class="mt-5 text-base text-gray-500">
+                          en temps réel en suivant vos résultats pas à pas.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="pt-6">
+                    <div class="flow-root bg-gray-50 rounded-lg px-6 pb-8">
+                      <div class="-mt-6">
+                        <div>
+                          <span
+                            class="inline-flex items-center justify-center p-3 bg-gradient-to-r from-teal-500 to-cyan-600 rounded-md shadow-lg"
+                          >
+                            <!-- Heroicon name: outline/refresh -->
+                            <svg
+                              class="h-6 w-6 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                              stroke="currentColor"
+                              aria-hidden="true"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                        <h3
+                          class="mt-8 text-lg font-medium text-gray-900 tracking-tight"
+                        >
+                          Maîtrisez
+                        </h3>
+                        <p class="mt-5 text-base text-gray-500">
+                          toutes les contraines d'une SCI.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <h2 class="mt-30 text-lg font-semibold text-cyan-600">
+                Les spécificités en pratique, <br/>
+                quels types de SCI sont concernées ?
+              </h2>
+              <p
+                class="mt-2 text-3xl font-bold text-gray-900 tracking-tight sm:text-4xl sm:tracking-tight"
+              >
+              iN-SCi est un outil dédié uniquement aux Sociétés Civiles Immobilières soumises à L’impôt sur le Revenu (SCI IR). Le traitement de la TVA étant en cours de  développement, les éléments traités ici sont exclusivement TTC.
+              </p>
+              <p
+                class="mt-2 text-3xl font-bold text-gray-900 tracking-tight sm:text-4xl sm:tracking-tight"
+              >
+              Vous êtes un cas particuliers, ou une Société Civile Immobilière soumises à l’impôt sur les sociétés (SCI IS) ?Nous nous tenons à votre disposition pour vous apporter des solutions ou échanger sur le sujet.
+              </p>
+
+              <button>Contactez-nous</button>
+          </div>
+        </div>
+
+
+
+          <!-- Section les incontournables pour une gestion sereine -->
+          <div class="relative bg-cyan-800 text-white py-16 sm:py-24 lg:py-32">
+            <div class="relative">
+              <div
+                class="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl"
+              >
+                <h2 class="text-lg font-semibold ">
+                  Les incontournables pour <br/>
+                  une gestion sereine
+                </h2>
+
+                <ul>
+                  <li>
+                    &check; Soyez sûr de vos déclarations fiscales en affectant vos données bancaires.
+                  </li>
+                  <li>
+                    &check; Restez informé des mouvements et du solde de vos comptes courants d’associés grâce au suivi automatique de vos apports et prélèvements.
+                  </li>
+                  <li>
+                    &check; Recevez un rapport annuel d’associé répondant à vos attentes.
+                  </li>
+                </ul>
+                <p class="mt-5 mx-auto max-w-prose text-xl ">
+                  Nous vous accompagnons pas à pas dans la gestion de votre patrimoine.
+                  Prêt à nous rejoindre ?
+                </p>
+                <button>Créer mon espace &#8594;</button>
+
+                <div class="bg-white text-cyan-800">
+                  <h2>Pourquoi opter pour iN-SCi ?</h2>
+                  <p>
+                    Gérer son patrimoine immobilier peut manquer d’évidence, de transparence et de simplicité ? <br/>
+                    Chez iN-SCi, on a pensé un outil qui vous simplifie vraiment la tâche !
+                  </p>
+                  <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
+                    <dl class="mt-12 space-y-10 divide-x sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
+                      <div class="relative">
+                        <dt>
+                          <p class="ml-9 text-lg leading-6 font-medium text-orange-600">Ultra simple</p>
+                        </dt>
+                        <dd class="mt-2 ml-9 text-base ">
+                          Des aides sont mises à votre disposition pour avancer à votre rythme.
+                        </dd>
+                      </div>
+                      <div class="relative">
+                        <dt>
+                          <p class="ml-9 text-lg leading-6 font-medium text-orange-600">Modulable</p>
+                        </dt>
+                        <dd class="mt-2 ml-9 text-base ">
+                          Restez serein, les associés et les
+                          biens changent, et l’outil s’adapte.
+                        </dd>
+                      </div>
+                      <div class="relative">
+                        <dt>
+                          <p class="ml-9 text-lg leading-6 font-medium text-orange-600">Performant</p>
+                        </dt>
+                        <dd class="mt-2 ml-9 text-base ">
+                          Les informations
+                          fiscales sont mises à jour et actualisées en permanence.
+                        </dd>
+                      </div>
+                      <div class="relative">
+                        <dt>
+                          <p class="ml-9 text-lg leading-6 font-medium text-orange-600">Évolutif</p>
+                        </dt>
+                        <dd class="mt-2 ml-9 text-base ">
+                          De nombreuses
+                          évolutions sont déjà en projet pour vous simplifier la vie.
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="relative bg-white py-16 sm:py-24 lg:py-32">
+            <div class="relative">
+              <div
+                class="text-center mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl"
+              >
+                <h2 class="text-lg font-semibold text-cyan-600">
+                  Accédez à votre compte prêt à l’emploi, plus de temps à perdre !
+                </h2>
+                <p>
+                  Accédez à votre compte prêt à l’emploi, plus de temps à perdre !
+                </p>
+                <div class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
+                  <dl class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8">
+                    <div class="relative">
+                      <dt>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Configuration rapide</p>
+                      </dt>
+                      <dd class="pl-10 text-left mt-2 ml-9 text-base text-gray-500">
+                        <ul>
+                          <li>
+                            fiche d’identité
+                          </li>
+                          <li>
+                            associés
+                          </li>
+                          <li>
+                            patrimoine
+                          </li>
+                        </ul>
+                      </dd>
+                    </div>
+                    <div class="relative">
+                      <dt>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Saisie de vos données</p>
+                      </dt>
+                      <dd class="pl-10 text-left mt-2 ml-9 text-base text-gray-500">
+                        <ul>
+                          <li>
+                            relevés bancaires
+                          </li>
+                          <li>
+                            factures annexes
+                          </li>
+                        </ul>
+                      </dd>
+                    </div>
+                    <div class="relative">
+                      <dt>
+                        <p class="ml-9 text-lg leading-6 font-medium text-gray-900">Compte rendu</p>
+                      </dt>
+                      <dd class="pl-10 text-left mt-2 ml-9 text-base text-gray-500">
+                        <ul>
+                          <li>
+                            liasse fiscale
+                          </li>
+                          <li>
+                            apport des associés
+                          </li>
+                          <li>
+                            assemblée générale
+                          </li>
+                        </ul>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+                <button>C'est parti</button>
+
+                <div class="border-dotted border-b-4 border-cyan-800 mt-32">&nbsp;</div>
+                <div class="text-left mt-32">
+                  <div>
+                    <h2>Décidez, gérez, partagez</h2>
+                    <p>Parce que finalement c’est ça une Société Civile Immobilière. C’est faire le choix de gérer seul, ou en équipe,
+                      un patrimoine immobilier et ainsi bénéficier d’une <b>fiscalité avantageuse.</b> </p>
+                    <ul role="list" class="pt-20 space-y-12  sm:space-y-0 sm:-mt-8 lg:gap-x-8 lg:space-y-0">
+                      <li class="sm:py-8">
+                        <div class="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
+                          <div class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
+                            <img
+                              class="object-cover shadow-lg rounded-tl-3xl rounded-br-3xl rounded-tr rounded-bl"
+                              src="assets/images/la_sci_de_famille.png"
+                              alt=""
+                            >
+                          </div>
+                          <div class="sm:col-span-2">
+                            <div class="space-y-4">
+                              <div class="text-lg leading-6 font-medium space-y-1">
+                                <h3>La SCI de famille</h3>
+                              </div>
+                              <div class="text-lg">
+                                <p class="text-gray-500">
+                                  Ici, on ne parle pas comptabilité mais on arrive toujours au bon résultat.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="sm:py-8">
+                        <div class="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
+                          <div class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
+                            <img
+                              class="object-cover shadow-lg rounded-tl-3xl rounded-br-3xl rounded-tr rounded-bl"
+                              src="assets/images/la_sci_et_ses_associés.png"
+                              alt=""
+                            >
+                          </div>
+                          <div class="sm:col-span-2">
+                            <div class="space-y-4">
+                              <div class="text-lg leading-6 font-medium space-y-1">
+                                <h3>La SCI & ses associés</h3>
+                              </div>
+                              <div class="text-lg">
+                                <p class="text-gray-500">
+                                  Tout se partage : la tenue, la gestion et les résultats.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="sm:py-8">
+                        <div class="space-y-4 sm:grid sm:grid-cols-3 sm:items-start sm:gap-6 sm:space-y-0">
+                          <div class="aspect-w-3 aspect-h-2 sm:aspect-w-3 sm:aspect-h-4">
+                            <img
+                              class="object-cover shadow-lg rounded-tl-3xl rounded-br-3xl rounded-tr rounded-bl"
+                              src="assets/images/la_sci_et_ses_obligations.png"
+                              alt=""
+                            >
+                          </div>
+                          <div class="sm:col-span-2">
+                            <div class="space-y-4">
+                              <div class="text-lg leading-6 font-medium space-y-1">
+                                <h3>La SCI & ses obligations</h3>
+                              </div>
+                              <div class="text-lg">
+                                <p class="text-gray-500">
+                                  Répondez à vos obligations, même celles que vous n’imaginez pas.
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+          <!-- Testimonial section -->
+          <div class="relative bg-white mb-32">
+            <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-4xl">
+              <blockquote>
+                <div>
+                  <svg
+                    class="h-12 w-12 opacity-25"
+                    fill="currentColor"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
+                    />
+                  </svg>
+                  <p class="text-2xl font-medium text-center">
+                    Une SCI gérée à moitié ne produira pas les effets attendus, <br/>
+                    et tout ce que vous aurez mis en place n’aura servi à rien !
+                  </p>
+                  <svg
+                    class="h-12 w-12 opacity-25 rotate-180 float-right"
+                    fill="currentColor"
+                    viewBox="0 0 32 32"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z"
+                    />
+                  </svg>
+                </div>
+                <footer class="mt-20">
+                  <p class="text-base font-medium text-right">
+                    Matthieu LAPORTE - Fondateur de iN-SCi
+                  </p>
+                </footer>
+              </blockquote>
+            </div>
+            <div class="text-center max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
+              <div class="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-3 lg:gap-x-8">
+                <div class="relative border-r-2">
+                  Une liasse fiscale fausse <br/>
+                  = <br/>
+                  une taxation d’office !
+                </div>
+                <div class="relative border-r-2">
+                  Des comptes courants non suivis<br/>
+                  =<br/>
+                  une taxation erronée
+                  de la plus-value !
+                </div>
+                <div class="relative">
+                  Une réunion annuelle non tenue<br/>
+                  =<br/>
+                  un risque d’amende<br/>
+                  pour non-respect des règles !
+                </div>
+              </div>
+            </div>
+            <div class="mx-auto max-w-md relative text-center content-center">
+              <button class="content-center">Changer pour iN-SCi</button>
+            </div>
+
+          </div>
+
+          <!-- Section tarif -->
+          <div class="relative bg-cyan-800 text-white py-16 sm:py-24 lg:py-32">
+            <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
+              <h2>Nos tarifs</h2>
+              <p>
+                Faites-le vous-même et gagnez du temps pour la facturation, on fait simple : <br/>
+                <b class="text-orange-600"> 1 FACTURE / 1 SCI / 1 AN</b> <br/>
+                Et en plus, la facture est totalement déductible de votre résultat !
+              </p>
+
+              <div class="mt-20 flex justify-center">
+                <div class="mt-20 max-w-md mx-auto lg:mt-0 lg:max-w-md lg:mx-0 lg:col-start-3 lg:col-end-6 lg:row-start-1 lg:row-end-4">
+                  <div class="relative z-10 rounded-3xl">
+                    <div class="pointer-events-none absolute inset-0 rounded-3xl " aria-hidden="true"></div>
+                    <div class="absolute inset-x-0 top-0 transform translate-y-px">
+                      <div class="flex justify-center transform -translate-y-1/2">
+                        <span class="inline-flex rounded-full bg-white px-4 py-1 text-base font-semibold text-white uppercase"
+                          style="color: #C5489B"
+                        >
+                          Un tarif unique
+                        </span>
+                      </div>
+                    </div>
+                    <div class="bg-orange-600 text-white rounded-t-3xl px-6 pt-12 pb-10">
+                      <div>
+                        <div class="mt-4 flex items-center justify-center">
+                          <span class="px-3 flex items-start text-6xl tracking-tight sm:text-6xl sm:tracking-tight">
+                            <span class="font-bold"> 200 € </span>
+                          </span>
+                          <span class="text-2xl font-medium"> TTC/an </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bg-white border-t-2 border-gray-100 rounded-b-3xl pt-10 pb-8 px-6  sm:px-10 sm:py-10">
+                      <ul role="list" class="space-y-4 text-orange-600 text-center">
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Gestion des associés</p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Gestion des biens</p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Accès au module de saisie bancaire</p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Affectation des biens</p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Catégorisation des recettes et des dépenses</p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">
+                            Calcul de la liasse fiscale par associé
+                            (formulaire 2072)
+                          </p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Grand livre des comptes courants d’associés</p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Assemblée générale annuelle</p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Transmission par mail du dossier annuel</p>
+                        </li>
+                        <li>
+                          <p class="ml-3 text-base font-medium ">Historisation des exercices antérieurs</p>
+                        </li>
+
+                      </ul>
+                      <div class="mt-10">
+                        <div class="rounded-lg shadow-md">
+                          <a href="#"
+                             class="block w-full text-center rounded-lg border border-transparent bg-indigo-600 px-6 py-4 text-xl leading-6 font-medium text-white hover:bg-indigo-700" aria-describedby="tier-growth">
+                            Je souscris
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Section aide -->
+          <div class="relative bg-white pt-32 mb-32 py-16 sm:py-24 lg:py-32">
+            <div class="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-4xl">
+              <h2>Besoin d’aide ? <b class="text-orange-600"> On est là !</b></h2>
+              <p>
+                Par mail ou téléphone nous serons ravis de répondre à vos questions, <br/>
+                n’hésitez pas à nous contacter :
+              </p>
+              <div class="mt-20 grid grid-cols-2 gap-4">
+                <div>
+                  <div>
+                    image
+                  </div>
+                  <div>
+                    <button>contact@insci.fr</button>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    image
+                  </div>
+                  <div>
+                    <button>contact@insci.fr</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="bg-cyan-800" aria-labelledby="footer-heading">
+          <h2 id="footer-heading" class="sr-only">Footer</h2>
+          <div
+            class="max-w-md mx-auto pt-12 px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8"
+          >
+            <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+              <div class="space-y-8 xl:col-span-1">
+                <img
+                  class="h-20"
+                  src="assets/images/Logo-blanc.png"
+                  alt="iN-SCi"
+                />
+              </div>
+              <div class="mt-12 grid grid-cols-3 gap-8 xl:mt-0 xl:col-span-2">
+                  <div>
+                    <h3 class="text-base font-medium text-orange-600">
+                      Information
+                    </h3>
+                    <ul role="list" class="mt-4 space-y-4 text-white">
+                      <li>
+                        <a
+                          href="#"
+                          class="text-base "
+                        >
+                          Contact
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="#"
+                          class="text-base"
+                        >
+                          A propos
+                        </a>
+                      </li>
+
+                    </ul>
+                  </div>
+                  <div class="mt-12 md:mt-0">
+                    <h3 class="text-base font-medium text-orange-600">Produits</h3>
+                    <ul role="list" class="mt-4 space-y-4 text-white">
+                      <li>
+                        <a
+                          href="#"
+                          class="text-base"
+                        >
+                          Fonctionnalités
+                        </a>
+                      </li>
+
+                      <li>
+                        <a
+                          href="#"
+                          class="text-base"
+                        >
+                          Blog
+                        </a>
+                      </li>
+
+                    </ul>
+                  </div>
+                  <div class="mt-12 md:mt-0">
+                    <ul role="list" class="mt-4 space-y-4 text-white">
+                      <li>
+                        Cookies
+                      </li>
+                      <li>
+                        Confidentialité
+                      </li>
+                      <li>
+                        Mentions Légales
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+            </div>
+            <div class="mt-12 border-t border-gray-200 py-4">
+              <div class="grid grid-cols-3">
+                <div></div>
+                <div class="flex justify-center">
+                  <a href="#" class="text-gray-400 hover:text-gray-300">
+                    <span class="sr-only">Instagram</span>
+                    <img src="assets/images/instagram.svg" alt="instagram" class="h-10">
+                  </a>
+                  <div>&nbsp; &nbsp;</div>
+                  <a href="#" class="text-gray-400 hover:text-gray-300">
+                    <span class="sr-only">LinkedIn</span>
+                    <img src="assets/images/linkedin.svg" alt="linkedin" class="h-10">
+                  </a>
+                  <div>&nbsp; &nbsp;</div>
+
+                  <a href="#" class="text-gray-400 hover:text-gray-300">
+                    <span class="sr-only">Facebook</span>
+                    <img src="assets/images/facebook.svg" alt="facebook" class="h-10">
+                  </a>
+                </div>
+                <p class="pt-4 text-sm text-gray-400 xl:text-center">
+                  2022 &copy; InSCI - Tous droits réservés
+                </p>
+              </div>
+              </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
