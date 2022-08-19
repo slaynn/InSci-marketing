@@ -22,6 +22,11 @@ module.exports = {
           800 : '#21233F'
         },
       },
+      fontFamily: {
+        Foco: ["Foco", "sans-serif"],
+        Focobold: ["Foco bold", "sans-serif"],
+        Raleway: ["Raleway", "sans-serif"],
+      },
     },
   },
   content: ["./src/**/*.{html,js}"],
